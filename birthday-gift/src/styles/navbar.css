@@ -1,0 +1,151 @@
+
+/* 🌈 GLASS NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 14px 30px;
+
+  background: rgba(255, 77, 109, 0.75);
+  backdrop-filter: blur(12px);
+
+  color: white;
+  z-index: 1000;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* LOGO */
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  letter-spacing: 1px;
+}
+
+/* LINKS */
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+
+  position: relative;
+  transition: 0.3s ease;
+}
+
+/* ✨ HOVER EFFECT */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+
+  background: white;
+  transition: 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a:hover {
+  transform: translateY(-2px);
+  color: #ffe5ec;
+}
+
+/* 🍔 HAMBURGER */
+.menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.menu span {
+  width: 26px;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+  transition: 0.3s ease;
+}
+
+/* ANIMATE HAMBURGER TO X */
+.menu.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* 📱 MOBILE */
+@media (max-width: 768px) {
+
+  .menu {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 65px;
+    right: 10px;
+
+    flex-direction: column;
+
+    background: rgba(255, 77, 109, 0.95);
+    backdrop-filter: blur(15px);
+
+    width: 220px;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    display: none;
+
+    animation: slideDown 0.3s ease;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .nav-links a:hover {
+    background: rgba(255,255,255,0.15);
+  }
+}
+
+/* 📥 MOBILE ANIMATION */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
