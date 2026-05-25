@@ -111,7 +111,6 @@
   opacity: 0.9;
 }
 
-/* RANDOM POSITIONS + SPEED */
 .decor span:nth-child(1) { left: 10%; animation-duration: 6s; }
 .decor span:nth-child(2) { left: 20%; animation-duration: 7s; }
 .decor span:nth-child(3) { left: 30%; animation-duration: 5s; }
@@ -121,7 +120,6 @@
 .decor span:nth-child(7) { left: 70%; animation-duration: 6.8s; }
 .decor span:nth-child(8) { left: 80%; animation-duration: 8s; }
 
-/* FALL ANIMATION */
 @keyframes fall {
   0% {
     transform: translateY(-10%) rotate(0deg);
@@ -133,13 +131,11 @@
   }
 }
 
-/* FLOAT IMAGE */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-15px); }
 }
 
-/* FADE UP */
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -166,16 +162,11 @@
     font-size: 18px;
   }
 }
-.gift-container {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
 
-/* 🎁 GIFT ICONS */
-/* 🌟 CONTAINER */
+/* ========================= */
+/* 🎁 GIFTS SYSTEM */
+/* ========================= */
+
 .gift-container {
   position: absolute;
   inset: 0;
@@ -183,7 +174,7 @@
   pointer-events: none;
 }
 
-/* 🎁 GIFT CARD */
+/* GIFT BOX */
 .gift {
   position: absolute;
   pointer-events: auto;
@@ -198,7 +189,7 @@
   transition: transform 0.3s ease;
 }
 
-/* 🎁 ICON */
+/* ICON */
 .gift-icon {
   font-size: 34px;
   background: rgba(255, 255, 255, 0.7);
@@ -211,7 +202,7 @@
   transition: all 0.3s ease;
 }
 
-/* 🏷 LABEL */
+/* LABEL */
 .gift-label {
   font-size: 12px;
   margin-top: 5px;
@@ -220,14 +211,11 @@
 
   opacity: 0;
   transform: translateY(5px);
-
   transition: 0.3s;
 }
 
-/* hover effect */
 .gift:hover .gift-icon {
   transform: scale(1.2) rotate(8deg);
-  box-shadow: 0 12px 30px rgba(255, 46, 99, 0.4);
 }
 
 .gift:hover .gift-label {
@@ -235,20 +223,22 @@
   transform: translateY(0);
 }
 
-/* 🌸 NEW SAFE POSITIONS (NOT ON PROFILE FACE) */
+/* POSITIONS */
 .gift-1 { top: 8%; left: 6%; }
 .gift-2 { top: 10%; right: 8%; }
 .gift-3 { top: 35%; left: 3%; }
 .gift-4 { top: 60%; right: 5%; }
 .gift-5 { bottom: 12%; left: 45%; }
 
-/* 🎈 FLOAT ANIMATION */
 @keyframes floatGift {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
 
-/* 📦 MODAL IMPROVED */
+/* ========================= */
+/* 📦 MODAL */
+/* ========================= */
+
 .gift-modal {
   position: fixed;
   inset: 0;
@@ -276,15 +266,20 @@
   box-shadow: 0 20px 50px rgba(0,0,0,0.2);
 }
 
-.gift-box img {
+/* 🆕 VIDEO FIX (IMPORTANT) */
+.gift-video {
   width: 100%;
-  border-radius: 15px;
-  margin-bottom: 10px;
-  transition: transform 0.3s ease;
-}
+  max-width: 320px;
+  height: 360px;
 
-.gift-box img:hover {
-  transform: scale(1.05);
+  object-fit: cover;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 0 15px red,
+    0 0 30px hotpink;
+  margin-bottom: 10px;
 }
 
 .gift-box p {
@@ -312,7 +307,6 @@
   transform: scale(1.05);
 }
 
-/* POP ANIMATION */
 @keyframes pop {
   from { transform: scale(0.6); opacity: 0; }
   to { transform: scale(1); opacity: 1; }

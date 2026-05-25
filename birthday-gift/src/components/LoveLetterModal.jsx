@@ -1,5 +1,8 @@
 import '../styles/letter.css';
 
+/* 🎥 IMPORT YOUR VIDEO */
+import loveVideo from '../assets/videos/love.mp4';
+
 function LoveLetterModal({ show, onClose }) {
   if (!show) return null;
 
@@ -7,15 +10,15 @@ function LoveLetterModal({ show, onClose }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal" onClick={(e) => e.stopPropagation()}>
 
-        <h2>💌 My Love Letter</h2>
-
-        <p>
-          My love ❤️ <br /><br />
-          You are the reason my world feels beautiful. <br />
-          Every moment with you is a blessing ✨ <br />
-          I made this just for you 🎁 <br /><br />
-          Happy Birthday my everything 💖
-        </p>
+        {/* 🎥 VIDEO INSTEAD OF TEXT LETTER */}
+        <video
+          src={loveVideo}
+          className="letter-video"
+          autoPlay
+          loop
+          playsInline
+          controls
+        />
 
         <button onClick={onClose}>
           Close

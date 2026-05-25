@@ -13,13 +13,25 @@ function Navbar() {
 
       <div className={`nav-links ${open ? 'active' : ''}`}>
 
-        <a href="#home" onClick={() => setOpen(false)}>Home</a>
-        <a href="#gallery" onClick={() => setOpen(false)}>Memories</a>
-        <a href="#music" onClick={() => setOpen(false)}>Music</a>
-        <a href="#contact" onClick={() => setOpen(false)}>Love</a>
+        <a href="#home" onClick={() => setOpen(false)}>
+          Home
+        </a>
+
+        <a href="#gallery" onClick={() => setOpen(false)}>
+          Memories
+        </a>
+
+        <a href="#music" onClick={() => setOpen(false)}>
+          Music
+        </a>
+
+        <a href="#love" onClick={() => setOpen(false)}>
+          My Love ❤️
+        </a>
 
       </div>
 
+      {/* MENU TOGGLE */}
       <div
         className={`menu ${open ? 'open' : ''}`}
         onClick={() => setOpen(!open)}

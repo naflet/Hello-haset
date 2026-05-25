@@ -6,29 +6,24 @@ import song1 from '../assets/audio/song1.mp3';
 import song2 from '../assets/audio/song2.mp3';
 
 function MusicPlayer() {
-
-  const songs = [
-    song1,
-    song2,
-  ];
+  const songs = [song1, song2];
 
   const [current, setCurrent] = useState(0);
 
   return (
     <section className="music">
-
       <div className="music-card">
-
         <h2>Our Songs 🎶</h2>
 
+        {/* ✅ KEY FIX: forces audio to reload when song changes */}
         <audio
+          key={current}
           controls
           src={songs[current]}
           className="audio"
         />
 
         <div className="controls">
-
           <button onClick={() => setCurrent(0)}>
             🎵 Song 1
           </button>
@@ -36,11 +31,8 @@ function MusicPlayer() {
           <button onClick={() => setCurrent(1)}>
             🎶 Song 2
           </button>
-
         </div>
-
       </div>
-
     </section>
   );
 }

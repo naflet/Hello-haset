@@ -1,29 +1,51 @@
 import { useState } from 'react';
+
 import '../styles/hero.css';
 
 import profile from '../assets/images/image.png';
 
-import img1 from '../assets/images/image1.png';
-import img2 from '../assets/images/image2.png';
-import img3 from '../assets/images/image3.png';
-import img4 from '../assets/images/image4.png';
-import img5 from '../assets/images/image5.png';
+/* 🎥 IMPORT VIDEOS */
+import love1 from '../assets/videos/love1.mp4';
+import love2 from '../assets/videos/love2.mp4';
+import love3 from '../assets/videos/love3.mp4';
+import love4 from '../assets/videos/love4.mp4';
+import love5 from '../assets/videos/love5.mp4';
 
 function Hero({ onOpenLetter }) {
+
   const [selectedGift, setSelectedGift] = useState(null);
 
   const gifts = [
-    { img: img1, text: "You are my happiness ❤️" },
-    { img: img2, text: "Every moment with you is special ✨" },
-    { img: img3, text: "You are my dream 💖" },
-    { img: img4, text: "I love your smile 🌸" },
-    { img: img5, text: "Forever mine 💍" },
+    {
+      video: love1,
+      text: "You are my happiness ❤️"
+    },
+
+    {
+      video: love2,
+      text: "Every moment with you is special ✨"
+    },
+
+    {
+      video: love3,
+      text: "You are my dream 💖"
+    },
+
+    {
+      video: love4,
+      text: "I love your smile 🌸"
+    },
+
+    {
+      video: love5,
+      text: "Forever mine 💍"
+    },
   ];
 
   return (
     <section className="hero">
 
-      {/* 🌸 FLOWER DECORATION (ONLY ADDITION) */}
+      {/* 🌸 FLOWER DECORATION */}
       <div className="decor">
         <span>🌸</span>
         <span>💖</span>
@@ -35,7 +57,7 @@ function Hero({ onOpenLetter }) {
         <span>💖</span>
       </div>
 
-      {/* 💖 HERO CONTENT (UNCHANGED STRUCTURE) */}
+      {/* 💖 HERO CONTENT */}
       <div className="hero-content">
 
         <img
@@ -46,36 +68,65 @@ function Hero({ onOpenLetter }) {
 
         <h1>Happy Birthday My Love ❤️</h1>
 
-        <p>You are the most beautiful part of my life</p>
+        <p>
+          You are the most beautiful part of my life
+        </p>
 
-        <button className="hero-btn" onClick={onOpenLetter}>
+        <button
+          className="hero-btn"
+          onClick={onOpenLetter}
+        >
           💖 Open Surprise
         </button>
 
       </div>
 
-      {/* 🎁 GIFTS (ONLY ADDITION) */}
-     <div className="gift-container">
+      {/* 🎁 GIFTS */}
+      <div className="gift-container">
 
-  {gifts.map((gift, index) => (
-    <div
-      key={index}
-      className={`gift gift-${index + 1}`}
-      onClick={() => setSelectedGift(gift)}
-    >
-      <div className="gift-icon">🎁</div>
-      <span className="gift-label">Open me</span>
-    </div>
-  ))}
+        {gifts.map((gift, index) => (
 
-</div>
+          <div
+            key={index}
+            className={`gift gift-${index + 1}`}
+            onClick={() => setSelectedGift(gift)}
+          >
+
+            <div className="gift-icon">
+              🎁
+            </div>
+
+            <span className="gift-label">
+              Open me
+            </span>
+
+          </div>
+
+        ))}
+
+      </div>
 
       {/* 📦 GIFT MODAL */}
       {selectedGift && (
-        <div className="gift-modal" onClick={() => setSelectedGift(null)}>
-          <div className="gift-box" onClick={(e) => e.stopPropagation()}>
 
-            <img src={selectedGift.img} alt="gift" />
+        <div
+          className="gift-modal"
+          onClick={() => setSelectedGift(null)}
+        >
+
+          <div
+            className="gift-box"
+            onClick={(e) => e.stopPropagation()}
+          >
+
+            {/* 🎥 VIDEO */}
+            <video
+              className="gift-video"
+              src={selectedGift.video}
+              autoPlay
+              loop
+              controls
+            />
 
             <p>{selectedGift.text}</p>
 
@@ -84,7 +135,9 @@ function Hero({ onOpenLetter }) {
             </button>
 
           </div>
+
         </div>
+
       )}
 
     </section>

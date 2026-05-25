@@ -6,6 +6,7 @@ import Gallery from './components/Gallery';
 import Message from './components/Message';
 import MusicPlayer from './components/MusicPlayer';
 import LoveLetterModal from './components/LoveLetterModal';
+import Love from './components/Love';
 
 function App() {
   const [showLetter, setShowLetter] = useState(false);
@@ -31,7 +32,12 @@ function App() {
         <Gallery />
       </section>
 
-      {/* ✅ LOVE LETTER MODAL ALWAYS CONTROLLED HERE */}
+      {/* LOVE SECTION */}
+      <section id="love">
+        <Love />
+      </section>
+
+      {/* LOVE LETTER MODAL */}
       <LoveLetterModal
         show={showLetter}
         onClose={() => setShowLetter(false)}

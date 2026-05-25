@@ -2,8 +2,8 @@
   position: fixed;
   inset: 0;
 
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(10px);
 
   display: flex;
   justify-content: center;
@@ -14,52 +14,83 @@
   animation: fadeIn 0.3s ease;
 }
 
-/* MAIN CARD */
+/* 🎁 CLEAN VIDEO CARD (GIFT STYLE) */
 .modal {
   width: 90%;
   max-width: 420px;
 
-  background: linear-gradient(135deg, #ffffff, #ffe5ec);
+  background: linear-gradient(135deg, #ffffff, #ffe4ec);
 
-  border-radius: 20px;
-  padding: 25px;
+  border-radius: 25px;
+  padding: 20px;
 
   text-align: center;
 
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(255, 0, 80, 0.2);
 
   animation: popIn 0.4s ease;
+
   position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
 }
 
-/* TITLE */
-.modal h2 {
-  color: #ff4d6d;
-  font-size: 1.6rem;
-  margin-bottom: 15px;
+/* 💖 SOFT BACKGROUND GLOW */
+.modal::before {
+  content: "";
+  position: absolute;
+  inset: -30px;
 
-  animation: slideDown 0.5s ease;
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 80, 0.15),
+    transparent 70%
+  );
+
+  filter: blur(25px);
+  z-index: 0;
 }
 
-/* TEXT */
-.modal p {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: #333;
-
-  animation: fadeUp 0.6s ease;
+/* CONTENT ABOVE GLOW */
+.modal > * {
+  position: relative;
+  z-index: 1;
 }
 
-/* CLOSE BUTTON */
+/* 🎥 VIDEO (GIFT BOX STYLE FOCUS) */
+.letter-video {
+ width: 100%;
+  max-width: 320px;
+  height: 500px;
+
+  object-fit: cover;
+
+  border-radius: 15px;
+
+  
+
+  box-shadow:
+    0 0 20px rgba(255, 0, 60, 0.6),
+    0 0 45px rgba(255, 20, 147, 0.5),
+    0 0 80px rgba(255, 0, 0, 0.4);
+
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* 💖 BUTTON (CLEAN FLOAT STYLE) */
 .modal button {
-  margin-top: 20px;
+  padding: 10px 22px;
 
-  padding: 10px 25px;
   border: none;
-
   border-radius: 30px;
 
-  background: #ff4d6d;
+  background: linear-gradient(45deg, #ff4d6d, #ff2e63);
   color: white;
 
   font-size: 0.95rem;
@@ -73,9 +104,29 @@
 }
 
 .modal button:hover {
-  background: #ff1f4b;
   transform: scale(1.08);
-  box-shadow: 0 12px 25px rgba(255, 77, 109, 0.4);
+  box-shadow: 0 12px 25px rgba(255, 77, 109, 0.5);
+}
+
+/* 🌟 GLOW ANIMATION */
+@keyframes glowPulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: brightness(1);
+    box-shadow:
+      0 0 20px rgba(255, 0, 60, 0.5),
+      0 0 45px rgba(255, 20, 147, 0.4),
+      0 0 80px rgba(255, 0, 0, 0.3);
+  }
+
+  50% {
+    transform: scale(1.02);
+    filter: brightness(1.1);
+    box-shadow:
+      0 0 30px rgba(255, 0, 60, 0.8),
+      0 0 70px rgba(255, 20, 147, 0.6),
+      0 0 100px rgba(255, 0, 0, 0.5);
+  }
 }
 
 /* ANIMATIONS */
@@ -99,39 +150,14 @@
   }
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* MOBILE RESPONSIVE */
+/* 📱 RESPONSIVE */
 @media (max-width: 600px) {
   .modal {
-    padding: 20px;
+    padding: 15px;
+    max-width: 320px;
   }
 
-  .modal h2 {
-    font-size: 1.3rem;
-  }
-
-  .modal p {
-    font-size: 0.95rem;
+  .letter-video {
+    max-width: 280px;
   }
 }
